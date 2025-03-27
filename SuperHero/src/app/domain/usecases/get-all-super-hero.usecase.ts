@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SuperHeroRepository } from '../repositories/superhero.repository';
 import { UseCase } from '../../base/use-case';
-import { SuperHeroModel } from '../models';
+import { SuperHeroRepository } from '@repositories';
+import { SuperHeroModel } from '@models';
 
 @Injectable({
   providedIn: 'root',

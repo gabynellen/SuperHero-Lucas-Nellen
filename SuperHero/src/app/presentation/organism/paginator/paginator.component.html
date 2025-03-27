@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="paginator">
+        <mat-paginator
+          #paginator
+          (page)="PageEvent($event)"
+          [length]="length"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          aria-label="Select page"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

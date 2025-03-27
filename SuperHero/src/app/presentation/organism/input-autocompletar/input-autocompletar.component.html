@@ -1,0 +1,34 @@
+<form>
+  <mat-form-field class="field-w">
+    <input
+      type="text"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+      placeholder="Buscar Superheróe"
+    />
+    @if (selectedOpt) {
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      class="btn-clear"
+      (click)="cleanValue()"
+    >
+      <mat-icon class="material-symbols-outlined">close</mat-icon>
+    </button>
+    }
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      [displayWith]="displayFn"
+      (optionSelected)="onOptionSelected($event.option.value)"
+    >
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

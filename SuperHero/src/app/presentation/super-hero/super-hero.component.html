@@ -1,1 +1,21 @@
-<p>super-hero works!</p>
+<div class="autocomplotar">
+  <app-input-autocompletar
+    [options]="allSupers"
+    (selected)="filterSupers($event)"
+  ></app-input-autocompletar>
+  <app-paginator
+    [length]="allSupers.length"
+    (pageEvent)="loadSupers($event)"
+  ></app-paginator>
+</div>
+
+<div class="addSuper">
+  <button mat-raised-button color="primary">Agregar Super</button>
+</div>
+<div class="supers">
+  <app-grid
+    [dataSource]="supers"
+    (editElement)="editElement($event)"
+    (deleteElement)="deleteElement($event)"
+  ></app-grid>
+</div>

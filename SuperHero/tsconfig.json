@@ -18,10 +18,15 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"],
+    "baseUrl": "./",
+    "paths": {
+      "@mappers": ["src/app/data/mapper"],
+      "@models": ["src/app/domain/models"],
+      "@entities": ["src/app/data/entities"],
+      "@repositories": ["src/app/domain/repositories"],
+      "@useCases": ["src/app/domain/usecases"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

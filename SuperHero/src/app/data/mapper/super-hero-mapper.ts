@@ -1,6 +1,6 @@
+import { SuperHeroMockEntity } from '@entities';
 import { Mapper } from '../../base/mapper';
-import { SuperHeroModel } from '../../domain/models';
-import { SuperHeroMockEntity } from '../entities/super-hero-mock.entity';
+import { SuperHeroModel } from '@models';
 
 export class SuperHeroMapper extends Mapper<
   SuperHeroMockEntity,
@@ -10,6 +10,7 @@ export class SuperHeroMapper extends Mapper<
     return {
       id: param.id.toString(),
       name: param.name,
+      nickName: param.nickName,
       power: param.power,
     };
   }
@@ -18,6 +19,7 @@ export class SuperHeroMapper extends Mapper<
     return {
       id: Number(param.id),
       name: param.name,
+      nickName: param.nickName,
       power: param.power,
     };
   }
