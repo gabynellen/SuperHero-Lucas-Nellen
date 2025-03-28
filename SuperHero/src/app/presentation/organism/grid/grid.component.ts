@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { SuperHeroModel } from '@models';
+import e from 'express';
 
 @Component({
   selector: 'app-grid',
   standalone: true,
-  imports: [MatTableModule, MatIconModule],
+  imports: [MatTableModule, MatIconModule, MatButtonModule],
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.scss',
 })

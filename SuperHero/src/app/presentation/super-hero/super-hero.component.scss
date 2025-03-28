@@ -6,11 +6,20 @@
   margin-top: 10px;
 }
 
+.filter {
+  margin: 10px;
+  width: 500px;
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
 .supers {
   padding: 4rem 10rem;
 }
 
-.autocomplotar {
+.autocompletar {
   display: flex;
   justify-content: center;
 }

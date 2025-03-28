@@ -1,0 +1,79 @@
+<div class="form-super">
+  <div class="tittle">
+    <span class="color-primary dialog-title"
+      >{{
+        dialogData.action === "crear" ? "Agregar" : "Editar"
+      }}
+      SuperHeroe</span
+    >
+  </div>
+
+  <form [formGroup]="formSuper">
+    <div class="row">
+      <mat-form-field class="field">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          placeholder="Nombre"
+          oninput="this.value = this.value.toUpperCase()"
+        />
+        @if (formSuper.controls['name'].hasError('required')) {
+        <mat-error> Nombre requerido </mat-error>
+        }@if (formSuper.controls['name'].hasError('minlength')) {
+        <mat-error>Minimo permitido {{ min }} caracteres</mat-error>
+        } @if (formSuper.controls['name'].hasError('maxlength')) {
+        <mat-error>Maximo permitido {{ max }} caracteres</mat-error>
+        } @if (formSuper.controls['name'].hasError('pattern')) {
+        <mat-error>Solo se permiten letras</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="field">
+        <mat-label>Alias</mat-label>
+        <input matInput formControlName="nickName" placeholder="Alias" />
+        @if (formSuper.controls['nickName'].hasError('required')) {
+        <mat-error> Alias requerido </mat-error>
+        }@if (formSuper.controls['nickName'].hasError('minlength')) {
+        <mat-error>Minimo permitido {{ min }} caracteres</mat-error>
+        } @if (formSuper.controls['nickName'].hasError('maxlength')) {
+        <mat-error>Maximo permitido {{ max }} caracteres</mat-error>
+        } @if (formSuper.controls['nickName'].hasError('pattern')) {
+        <mat-error>Solo se permiten letras</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="field">
+        <mat-label>Poder</mat-label>
+        <input matInput formControlName="power" placeholder="Poder" />
+        @if (formSuper.controls['power'].hasError('required')) {
+        <mat-error> Poder requerido </mat-error>
+        } @if (formSuper.controls['power'].hasError('minlength')) {
+        <mat-error>Minimo permitido {{ min }} caracteres</mat-error>
+        } @if (formSuper.controls['power'].hasError('maxlength')) {
+        <mat-error>Maximo permitido {{ max }} caracteres</mat-error>
+        } @if (formSuper.controls['power'].hasError('pattern')) {
+        <mat-error>Solo se permiten letras</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <div class="col button">
+        <button mat-flat-button color="primary" (click)="closeDialog()">
+          Cancelar
+        </button>
+      </div>
+      <div class="col button">
+        <button
+          [disabled]="formSuper.invalid"
+          mat-flat-button
+          (click)="confirm()"
+        >
+          {{ dialogData.action === "crear" ? "Agregar" : "Editar" }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

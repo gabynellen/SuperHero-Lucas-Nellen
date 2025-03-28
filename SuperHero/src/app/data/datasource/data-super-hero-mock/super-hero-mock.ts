@@ -137,13 +137,39 @@ export class SuperHeroMockRepository extends SuperHeroRepository {
     super();
   }
 
-  getSuperHeroById(id: number): Observable<SuperHeroModel> {
+  override getSuperHeroById(id: number): Observable<SuperHeroModel> {
     return from(this.supers)
       .pipe(filter((superH: SuperHeroMockEntity) => superH.id === id))
       .pipe(map(this.mapper.mapFrom));
   }
 
-  getAllSuperHeros(): Observable<SuperHeroModel> {
+  override getAllSuperHeros(): Observable<SuperHeroModel> {
     return from(this.supers).pipe(map(this.mapper.mapFrom));
+  }
+
+  override putSuperHero(
+    superEdit: SuperHeroModel,
+    allSupers: SuperHeroModel[]
+  ): SuperHeroModel[] {
+    const indexSuper = allSupers.findIndex((sp) => sp.id === superEdit.id);
+    allSupers[indexSuper] = superEdit;
+    return allSupers.slice(0, 5);
+  }
+
+  override postSuperHero(
+    superadd: SuperHeroModel,
+    allSupers: SuperHeroModel[]
+  ): SuperHeroModel[] {
+    superadd.id = (allSupers.length + 1).toString();
+    allSupers.push(superadd);
+    return allSupers.slice(0, 5);
+  }
+
+  override deleteSuperHero(
+    idSuperDelete: string,
+    allSupers: SuperHeroModel[]
+  ): SuperHeroModel[] {
+    allSupers = allSupers.filter((sp) => sp.id !== idSuperDelete);
+    return allSupers;
   }
 }

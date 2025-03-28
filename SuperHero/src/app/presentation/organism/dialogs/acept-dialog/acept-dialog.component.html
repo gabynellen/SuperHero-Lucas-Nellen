@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="tittle">
+    <span class="color-primary dialog-title">Eliminar superheroe</span>
+  </div>
+  <div class="subtitle">
+    <h3>¿Está seguro de que desea eliminar a {{ data.superHero.nickName }}?</h3>
+  </div>
+  <div class="row actions">
+    <div class="col button">
+      <button mat-flat-button color="primary" (click)="closeDialog()">
+        Cancelar
+      </button>
+    </div>
+    <div class="col button">
+      <button mat-flat-button (click)="confirm()">Aceptar</button>
+    </div>
+  </div>
+</div>

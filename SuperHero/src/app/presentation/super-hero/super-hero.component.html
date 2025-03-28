@@ -1,21 +1,32 @@
-<div class="autocomplotar">
-  <app-input-autocompletar
-    [options]="allSupers"
-    (selected)="filterSupers($event)"
-  ></app-input-autocompletar>
+<div class="autocompletar">
+  <div class="filter">
+    <mat-form-field>
+      <mat-label>Buscar Superheroe</mat-label>
+      <input
+        matInput
+        (keyup)="filterSupers($event)"
+        placeholder="Ej. Clark Kent"
+        #input
+      />
+    </mat-form-field>
+  </div>
   <app-paginator
+    #paginator
     [length]="allSupers.length"
     (pageEvent)="loadSupers($event)"
   ></app-paginator>
 </div>
 
 <div class="addSuper">
-  <button mat-raised-button color="primary">Agregar Super</button>
+  <button mat-raised-button color="primary" (click)="createEditSuper('crear')">
+    Agregar Super
+  </button>
 </div>
 <div class="supers">
   <app-grid
+    #grid
     [dataSource]="supers"
-    (editElement)="editElement($event)"
+    (editElement)="createEditSuper('editar', $event)"
     (deleteElement)="deleteElement($event)"
   ></app-grid>
 </div>

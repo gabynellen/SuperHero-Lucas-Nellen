@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { SuperHeroModel } from '@models';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-input-autocompletar',
@@ -19,6 +20,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MatIconModule,
     CommonModule,
+    MatButtonModule,
   ],
   templateUrl: './input-autocompletar.component.html',
   styleUrl: './input-autocompletar.component.scss',
