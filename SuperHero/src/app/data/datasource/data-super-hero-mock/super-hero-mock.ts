@@ -160,6 +160,15 @@ export class SuperHeroMockRepository extends SuperHeroRepository {
     superadd: SuperHeroModel,
     allSupers: SuperHeroModel[]
   ): SuperHeroModel[] {
+    const superExists = allSupers.find(
+      (sp) =>
+        sp.name.toLocaleUpperCase() === superadd.name ||
+        sp.nickName.toUpperCase() === superadd.nickName
+    );
+    if (superExists) {
+      alert('El superheroe ' + superadd.name + ' ya existe');
+      return allSupers.slice(0, 5);
+    }
     superadd.id = (allSupers.length + 1).toString();
     allSupers.push(superadd);
     return allSupers.slice(0, 5);
